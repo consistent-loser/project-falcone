@@ -2,7 +2,6 @@ import React from 'react';
 import Aux from '../../hoc/Auxilliary'
 import classes from './vehicleOption.css';
 const vehicleOption = props =>{
-
     let disabled=false;
 
     if(props.vehicleCount===0){

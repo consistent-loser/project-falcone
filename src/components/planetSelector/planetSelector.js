@@ -7,12 +7,12 @@ const planetSelector = props =>{
     <option value={planet.name}>{planet.name}</option>
    ));
 
-   const no_selected = <option selected disabled={disabled} >Select a planet</option>;
+   const no_selected = <option  disabled={disabled} >Select a planet</option>;
     planets = [no_selected,...planets];
    return(
     <Aux>
-      <label for="dest-1">Destination 1</label> <br /> 
-      <select name="planets" id={props.id} class={classes.destination_selector} onChange={props.setDestination}>
+      <label for="dest-1" style={{color:'white'}}>Destination&nbsp;{props.index}</label> <br /> 
+      <select name="planets" id={props.id} className={classes.destination_selector} onChange={props.setDestination}>
         {planets}                 
       </select>
     </Aux>

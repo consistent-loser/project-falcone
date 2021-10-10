@@ -23,24 +23,28 @@ class FindFalcone extends Component{
         options:[
             {
                 id:'op1',
+                index:1,
                 destination:'',
                 vehicle:[],
                 selectedVehicle:''
             },
             {
                 id:'0p2',
+                index:2,
                 destination:'',
                 vehicle:[],
                 selectedVehicle:''
             },
             {
                 id:'op3',
+                index:3,
                 destination:'',
                 vehicle:[],
                 selectedVehicle:''
             },
             {
                 id:'op4',
+                index:4,
                 destination:'',
                 vehicle:[],
                 selectedVehicle:''
@@ -56,7 +60,6 @@ class FindFalcone extends Component{
     }
 
     initiator = () => {
-        console.log("sending request");
         axios.get('https://findfalcone.herokuapp.com/planets')
         .then(response => {
             //console.log(response.data);
@@ -79,18 +82,18 @@ class FindFalcone extends Component{
               //this.setState({token:response.data.token});
                 const data = response.data.token;
                 this.setState({token:data});
-                console.log(this.state.token);
+                
           }); //catch
 
-          console.log("loaded");
 
-          this.setState({visible:0});
+         
 
     }
 
 
     componentDidMount(){
-        setTimeout(()=>this.initiator(),5000);
+        this.setState({visible:0});
+        this.initiator();
           
     }
 
@@ -98,7 +101,7 @@ class FindFalcone extends Component{
         try{
             let temp = [...this.state.options];
             let eligible_vehicles=[];
-            let vehicles=this.state.vehicles;
+            let vehicles=[...this.state.vehicles];
             const planetIndex = this.state.planets.findIndex(planet => planet.name===event.target.value);
             const selectedPlanet = this.state.planets[planetIndex];
             temp[index].destination = selectedPlanet
@@ -108,7 +111,6 @@ class FindFalcone extends Component{
                 }
             }
 
-            console.log(eligible_vehicles);
 
             temp[index].vehicle=eligible_vehicles;
             const initial = this.state.initial;
@@ -126,10 +128,11 @@ class FindFalcone extends Component{
         try{
             let temp= [...this.state.options];
             const tempVehicles=[...this.state.vehicles];
-            console.log(tempVehicles);
+            // console.log(tempVehicles);
             const vehicleIndex=tempVehicles.findIndex(vehicle => vehicle.name===event.target.value);
             let number_of_vehicle = tempVehicles[vehicleIndex].total_no;
-            console.log(tempVehicles);
+            // console.log(tempVehicles);
+
 
             const oldVehicleIndex = tempVehicles.findIndex(vehicle => vehicle.name===temp[index].selectedVehicle);
             let oldVehicleCount = -1;
@@ -180,9 +183,9 @@ class FindFalcone extends Component{
             //     planet_names:planetNames,
             //     vehicle_names:vehicleNames
             // }
-            console.log(this.state.token);
-            console.log(planetNames);
-            console.log(vehicleNames);
+            // console.log(this.state.token);
+            // console.log(planetNames);
+            // console.log(vehicleNames);
             axios({
                 method: 'post',
                 url: 'https://findfalcone.herokuapp.com/find',
@@ -231,24 +234,28 @@ class FindFalcone extends Component{
                 options:[
                     {
                         id:'op1',
+                        index:1,
                         destination:'',
                         vehicle:[],
                         selectedVehicle:''
                     },
                     {
                         id:'0p2',
+                        index:2,
                         destination:'',
                         vehicle:[],
                         selectedVehicle:''
                     },
                     {
                         id:'op3',
+                        index:3,
                         destination:'',
                         vehicle:[],
                         selectedVehicle:''
                     },
                     {
                         id:'op4',
+                        index:4,
                         destination:'',
                         vehicle:[],
                         selectedVehicle:''
@@ -270,7 +277,7 @@ class FindFalcone extends Component{
 
     render(){
         const selectorUnit = this.state.options.map((id,index) =>(
-            <SelectorUnit id={id.id} planets={this.state.planets} vehicles={this.state.options[index].vehicle} setDestination={(event) =>this.setDestinationHandler(event,index)} setVehicle ={(event) =>this.setVehicleHandler(event,index)} initial = {this.state.initial}/>
+            <SelectorUnit id={id.id} key={id.id} planets={this.state.planets} vehicles={this.state.options[index].vehicle} setDestination={(event) =>this.setDestinationHandler(event,index)} setVehicle ={(event) =>this.setVehicleHandler(event,index)} initial = {this.state.initial} index={id.index}/>
         ));
         return(
             <Aux>
