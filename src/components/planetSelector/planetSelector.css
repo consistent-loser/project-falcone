@@ -1,0 +1,10 @@
+.destination_selector {
+  /* appearance: none; */
+  font-family: "Orbitron", sans-serif;
+  background-color: rgba(128, 0, 128, 0.6);
+  color: #fff;
+  height: 15%;
+  border: 1px solid #000;
+  padding: 0 1rem;
+  border-radius: 5px;
+}

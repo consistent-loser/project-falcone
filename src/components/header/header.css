@@ -1,0 +1,53 @@
+.header {
+  width: 100%;
+  background: linear-gradient(rgba(7, 47, 95, 0.6), rgba(95, 221, 157, 0.6));
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5%;
+  box-sizing: border-box;
+  width: 100%;
+  font-family: "Orbitron", sans-serif;
+  align-items: center;
+  top: 0;
+}
+
+.main_heading {
+  font-size: 3rem;
+  font-weight: 900;
+  color: #fff;
+  font-style: italic;
+  padding: 0;
+  margin: 0;
+}
+
+.tabs {
+  display: flex;
+  list-style-type: none;
+}
+
+.tabs li {
+  text-decoration: none;
+  margin-right: 2rem;
+  font-weight: 900;
+  transition: color 0.5s;
+  cursor: pointer;
+}
+
+.tabs li a {
+  text-decoration: none;
+  color: inherit;
+}
+.tabs li:hover {
+  color: #fff;
+}
+
+@media (max-width: 900px) {
+  .main_heading {
+    font-size: 2rem;
+  }
+
+  .tabs li {
+    margin-right: 1rem;
+    font-size: 1rem;
+  }
+}

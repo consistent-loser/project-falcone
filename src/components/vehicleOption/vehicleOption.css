@@ -1,0 +1,11 @@
+.radio_option {
+  margin-bottom: 1rem;
+}
+
+.radio_label input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}

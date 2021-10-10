@@ -1,0 +1,14 @@
+.footer {
+  width: 100%;
+  min-height: 5rem;
+  background: linear-gradient(rgb(7, 47, 95, 0.2), rgb(95, 221, 157, 0.7));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* opacity: 0.4; */
+}
+
+.footer p {
+  margin: 0;
+  padding: 0;
+}

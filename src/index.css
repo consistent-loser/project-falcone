@@ -1,0 +1,11 @@
+body {
+  width: 100%;
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+  font-family: "Orbitron", sans-serif;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)),
+    url("./assets//Galaxy.jpg") fixed top left;
+  background-size: cover;
+  background-repeat: no-repeat;
+}

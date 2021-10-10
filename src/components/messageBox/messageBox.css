@@ -1,0 +1,79 @@
+.hoc {
+  /* visibility: hidden; */
+  display: flex;
+  width: 100vw;
+  min-height: 100vh;
+  background: linear-gradient(
+    to top,
+    rgb(7, 47, 95, 0.2),
+    rgb(95, 221, 157, 0.7)
+  );
+  position: fixed;
+  z-index: 100;
+  justify-content: center;
+  align-items: center;
+  top: -100vh;
+  transition: top 0.5s ease-out;
+}
+
+.visible {
+  top: 0;
+}
+.message {
+  width: 55%;
+  background-color: #fff;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  padding: 1rem;
+  padding-bottom: 2rem;
+  box-sizing: border-box;
+  border: 10px solid black;
+  animation: success 4s;
+  animation-iteration-count: infinite;
+  transition: margin-top 2s;
+  /* justify-content: center; */
+}
+
+.planetLabel {
+  display: inline-block;
+  margin: 0;
+}
+.planetName {
+  display: inline-block;
+  margin: 0;
+  margin-bottom: 1.5rem;
+}
+.time {
+  display: inline-block;
+  margin: 0;
+}
+.timeLabel {
+  display: inline-block;
+  margin: 0;
+}
+
+@keyframes success {
+  0% {
+    border-color: rgba(0, 0, 0, 0.6);
+  }
+  25% {
+    border-color: rgba(0, 128, 0, 0.6);
+  }
+  50% {
+    border-color: rgba(255, 0, 0, 0.6);
+  }
+  75% {
+    border-color: rgba(0, 0, 255, 0.6);
+  }
+  100% {
+    border-color: rgba(0, 0, 0, 0.6);
+  }
+}
+
+@media (max-width: 900px) {
+  .message {
+    padding: 1%;
+    width: 90%;
+  }
+}

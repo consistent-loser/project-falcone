@@ -1,0 +1,28 @@
+.loader {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(21, 24, 21);
+  top: 0;
+  left: 0;
+  position: fixed;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.animationCanvas {
+  display: flex;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+}
+
+.heading {
+  color: rgba(95, 221, 157, 0.6);
+  font-weight: 900;
+}
+
+.loading {
+  color: #666;
+}
