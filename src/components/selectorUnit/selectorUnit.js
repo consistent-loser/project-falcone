@@ -5,7 +5,7 @@ const selectorUnit = props =>{
     return(
         <div className="planets">
             <PlanetSelector planets={props.planets} id={props.id} setDestination={props.setDestination} initial = {props.initial} index={props.index} />
-            <VehicleOptions vehicles={props.vehicles} id={props.id} setVehicle = {props.setVehicle}/>
+            <VehicleOptions vehicles={props.vehicles} id={props.id} setVehicle = {props.setVehicle} selectedVehicle={props.selectedVehicle}/>
         </div>
     );
     

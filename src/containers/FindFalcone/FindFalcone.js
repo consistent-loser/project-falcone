@@ -26,28 +26,32 @@ class FindFalcone extends Component{
                 index:1,
                 destination:'',
                 vehicle:[],
-                selectedVehicle:''
+                selectedVehicle:'',
+                reset:0
             },
             {
                 id:'0p2',
                 index:2,
                 destination:'',
                 vehicle:[],
-                selectedVehicle:''
+                selectedVehicle:'',
+                reset:0
             },
             {
                 id:'op3',
                 index:3,
                 destination:'',
                 vehicle:[],
-                selectedVehicle:''
+                selectedVehicle:'',
+                reset:0
             },
             {
                 id:'op4',
                 index:4,
                 destination:'',
                 vehicle:[],
-                selectedVehicle:''
+                selectedVehicle:'',
+                reset:0
             },
         ],
 
@@ -97,6 +101,7 @@ class FindFalcone extends Component{
           
     }
 
+
     setDestinationHandler=(event,index)=>{
         try{
             let temp = [...this.state.options];
@@ -122,6 +127,7 @@ class FindFalcone extends Component{
             alert("something went Wrong");
         }
     }
+
 
     setVehicleHandler = (event,index) =>{
 
@@ -153,16 +159,19 @@ class FindFalcone extends Component{
                 if(oldVehicleCount!==-1){
                     oldVehicleCount=oldVehicleCount+1;
                     tempVehicles[oldVehicleIndex].total_no=oldVehicleCount;
+                   
                 }
+
                 tempVehicles[vehicleIndex].total_no=number_of_vehicle;
                 const time = temp[index].destination.distance/tempVehicles[vehicleIndex].speed;
                 this.setState({options:temp, vehicles:tempVehicles, timeTaken:time});
             }
 
-        } catch(err){ alert("something went wrong")}
+        } catch(err){ alert("something went wrong"); console.log(err)}
 
        
     }
+
 
     getFinalData =()=>{
         try{
@@ -203,7 +212,6 @@ class FindFalcone extends Component{
                 
             }).then(response=>{
                 //this.setState({token:response.data.token});
-                console.log(response.data.status);
                 if(response.data.status==='success'){
                     this.setState({isWin:1});
                     this.setState({planetFound:response.data.planet_name});
@@ -237,28 +245,32 @@ class FindFalcone extends Component{
                         index:1,
                         destination:'',
                         vehicle:[],
-                        selectedVehicle:''
+                        selectedVehicle:'',
+                        reset:0
                     },
                     {
                         id:'0p2',
                         index:2,
                         destination:'',
                         vehicle:[],
-                        selectedVehicle:''
+                        selectedVehicle:'',
+                        reset:0
                     },
                     {
                         id:'op3',
                         index:3,
                         destination:'',
                         vehicle:[],
-                        selectedVehicle:''
+                        selectedVehicle:'',
+                        reset:0
                     },
                     {
                         id:'op4',
                         index:4,
                         destination:'',
                         vehicle:[],
-                        selectedVehicle:''
+                        selectedVehicle:'',
+                        reset:0
                     },
                 ],
         
@@ -277,7 +289,7 @@ class FindFalcone extends Component{
 
     render(){
         const selectorUnit = this.state.options.map((id,index) =>(
-            <SelectorUnit id={id.id} key={id.id} planets={this.state.planets} vehicles={this.state.options[index].vehicle} setDestination={(event) =>this.setDestinationHandler(event,index)} setVehicle ={(event) =>this.setVehicleHandler(event,index)} initial = {this.state.initial} index={id.index}/>
+            <SelectorUnit id={id.id} key={id.id} planets={this.state.planets} vehicles={this.state.options[index].vehicle} selectedVehicle={this.state.options[index].selectedVehicle} setDestination={(event) =>this.setDestinationHandler(event,index)} setVehicle ={(event) =>this.setVehicleHandler(event,index)} initial = {this.state.initial} index={id.index}/>
         ));
         return(
             <Aux>
